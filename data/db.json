@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Rookiee",
+      "date": "November 02, 2023 6:38:47 AM",
+      "body": "Man ipsum dolor sit, amet consectetur adipisicing elit. Amet corrupti facere dignissautem inventore vel architecto nam iure id placeat? Iste, maxime nisi."
+    },
+    {
+      "id": 2,
+      "title": "Kanas",
+      "date": "September 21, 2026 12:19:36 AM",
+      "body": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet c."
+    },
+    {
+      "id": 3,
+      "title": "Muhammed",
+      "date": "November 02, 2023 7:04:38 AM",
+      "body": "Shamor babyu adipisicing elit. Amet corrupti facere dignissimos laborum! Numquam autem inventore vel architecto nam iure id placeat? Iste, "
+    },
+    {
+      "id": 5,
+      "title": "Testing",
+      "date": "November 02, 2023 2:35:54 AM",
+      "body": "Welcome to Error"
+    },
+    {
+      "id": 6,
+      "title": "DLT Janitor",
+      "date": "November 02, 2023 2:43:21 AM",
+      "body": "Muhammad - Fine Boy  😎😎"
+    }
+  ]
+}
