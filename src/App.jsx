@@ -10,6 +10,7 @@ import About from "./About";
 import HomeLayout from "./HomeLayout";
 import api from "./api/posts";
 import useWindowSize from "./hooks/useWindowSize";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 
 const App = () => {
@@ -20,15 +21,18 @@ const App = () => {
   const [postBody, setPostBody] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
-
   const { width } = useWindowSize()
+
+  const {data, fetchError, isLoading} = useAxiosFetch('http://localhost:3000/posts')
+  useEffect(() => {
+    setPosts(data)
+  }, [data]);
 
   useEffect(() => {
     const filterResult = posts.filter(
       (post) =>
         post.body.toLowerCase().includes(search.toLowerCase()) ||
-        post.title.toLowerCase().includes(search.toLowerCase())
-    );
+        post.title.toLowerCase().includes(search.toLowerCase()));
     setSearchResult(filterResult.reverse());
   }, [posts, search]);
 
@@ -102,7 +106,13 @@ const App = () => {
         path="/"
         element={<HomeLayout search={search} width={width} setSearch={setSearch} />}
       >
-        <Route index element={<Home posts={searchResult} />} />
+        <Route index element={<Home 
+        posts={searchResult} 
+        fetchError={fetchError}
+        isLoading={isLoading}
+        />
+        }
+         />
         <Route path="/post">
           <Route
             index
