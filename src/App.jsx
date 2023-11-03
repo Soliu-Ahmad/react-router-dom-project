@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
-
 import Home from "./Home";
 import NewPost from "./NewPost";
 import PostPage from "./PostPage";
+import EditPost from "./EditPost";
 import Missing from "./Missing";
 import About from "./About";
 import HomeLayout from "./HomeLayout";
 import api from "./api/posts";
-import EditPost from "./EditPost";
+import useWindowSize from "./hooks/useWindowSize";
+
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -19,6 +20,8 @@ const App = () => {
   const [postBody, setPostBody] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
+
+  const { width } = useWindowSize()
 
   useEffect(() => {
     const filterResult = posts.filter(
@@ -97,7 +100,7 @@ const App = () => {
     <Routes>
       <Route
         path="/"
-        element={<HomeLayout search={search} setSearch={setSearch} />}
+        element={<HomeLayout search={search} width={width} setSearch={setSearch} />}
       >
         <Route index element={<Home posts={searchResult} />} />
         <Route path="/post">
